@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: test-with-cloudformation
+Resources:
+  LAMBDA:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: test-with-cloudformation
+      Handler: linos.aws.lambda.ServiceImpl
+      Runtime: java8
+      Description: Function deployed with cloudformation
+      Code:
+        S3Bucket: hello-lambda-linos
+        S3Key: aws-lambda-1.0.jar
+      MemorySize: 128
+      Timeout: 300
+      Role: arn:aws:iam::424032789495:role/hello-lambda-role
