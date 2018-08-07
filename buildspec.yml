@@ -1,0 +1,26 @@
+version: 0.2
+
+env:
+  variables:
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+
+phases:
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo Build started on `date`
+      - cd aws-lambda
+      - mvn install
+    finally:
+      - echo This always runs even if the install command fails
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - aws-lambda/target/aws-lambda-1.0.jar
+  discard-paths: yes
+cache:
+  paths:
+    - 's3://cachepipeline/'
