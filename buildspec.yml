@@ -20,7 +20,7 @@ phases:
 artifacts:
   files:
     - aws-lambda/target/aws-lambda-1.0.jar
-    - aws-lambda/buildspec.yml
+    - aws-lambda/lambda-stack.yml
 
   discard-paths: yes
 cache:
