@@ -16,8 +16,7 @@ phases:
   post_build:
     commands:
       - pwd && aws --version
-      - aws s3 ls s3://
-      - aws s3 cp aws-lambda/target/aws-lambda-1.0.jar s3://hello-lambda-linos/
+      - aws s3 cp target/aws-lambda-1.0.jar s3://hello-lambda-linos/
       - echo Entered the post_build phase...
       - echo Build completed on `date`
 artifacts:
